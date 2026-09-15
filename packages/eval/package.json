@@ -12,6 +12,7 @@
   "dependencies": {
     "@lucid/core": "*",
     "commander": "15.0.0",
-    "dotenv": "17.4.2"
+    "dotenv": "17.4.2",
+    "zod": "4.6.5"
   }
 }
