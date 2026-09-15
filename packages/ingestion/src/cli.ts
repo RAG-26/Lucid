@@ -3,8 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { Command } from 'commander';
 import dotenv from 'dotenv';
 
-// packages/ingestion sits one directory below the repo root (packages/ingestion/src/cli.ts is
-// three levels below root), matching apps/api's env-loading convention in CLAUDE.md.
+// Resolves to the repo-root .env regardless of the invocation's working directory.
 dotenv.config({ path: resolve(dirname(fileURLToPath(import.meta.url)), '../../../.env') });
 
 export function buildProgram(): Command {
@@ -16,8 +15,7 @@ export function buildProgram(): Command {
   program
     .requiredOption('--corpus <name>', 'corpus to ingest (kubernetes or docker)')
     .action((options: { corpus: string }) => {
-      // Real ingestion (clone/read pinned SHA, clean, chunk, embed, upsert) lands here —
-      // this is Navnita's ownership per docs/workflow.md.
+      // Real ingestion lands here — Navnita's ownership per docs/workflow.md.
       console.log(`ingest --corpus ${options.corpus}: not yet implemented`);
     });
 

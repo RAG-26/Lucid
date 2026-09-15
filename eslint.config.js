@@ -4,8 +4,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 
 export default tseslint.config(
-  // eslint.config.js doesn't lint itself — a common convention, and it sidesteps
-  // type-aware rules misfiring on `globals`' loosely-typed exports outside a real tsconfig.
+  // eslint.config.js doesn't lint itself — sidesteps type-aware rules misfiring outside a real tsconfig.
   {
     ignores: [
       '**/dist/**',
@@ -20,9 +19,8 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        // apps/web/vite.config.ts isn't included by apps/web/tsconfig.json (which only
-        // covers src/**/*) — lint it without full cross-project type info instead of adding
-        // config-file noise to that tsconfig.
+        // vite.config.ts isn't covered by apps/web/tsconfig.json's include — lint it without
+        // full project type info instead.
         projectService: {
           allowDefaultProject: ['apps/web/vite.config.ts'],
         },
