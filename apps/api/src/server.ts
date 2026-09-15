@@ -2,8 +2,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import dotenv from 'dotenv';
 
-// apps/api sits one directory below the repo root, so this path is the same for every
-// package at that depth (see CLAUDE.md's env-loading convention).
+// Resolves to the repo-root .env regardless of the invocation's working directory.
 dotenv.config({ path: resolve(dirname(fileURLToPath(import.meta.url)), '../../../.env') });
 
 const { buildApp } = await import('./app.js');

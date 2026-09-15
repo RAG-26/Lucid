@@ -4,5 +4,5 @@ build/
 data/
 coverage/
 
-# Claude Code's own local session config, not part of the app
+# Local tooling config, not part of the app
 .claude/

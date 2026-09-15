@@ -23,6 +23,5 @@ coverage/
 # OS
 .DS_Store
 
-# Claude Code local settings (per-machine overrides — .claude/settings.json is a separate,
-# possibly-team-shared file and is intentionally not ignored here)
-.claude/settings.local.json
+# Local tooling config
+.claude/

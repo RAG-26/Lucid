@@ -3,23 +3,20 @@ import { fileURLToPath } from 'node:url';
 import { Command } from 'commander';
 import dotenv from 'dotenv';
 
-// packages/eval sits one directory below the repo root (packages/eval/src/cli.ts is three
-// levels below root), matching apps/api's env-loading convention in CLAUDE.md.
+// Resolves to the repo-root .env regardless of the invocation's working directory.
 dotenv.config({ path: resolve(dirname(fileURLToPath(import.meta.url)), '../../../.env') });
 
 export function buildProgram(): Command {
   const program = new Command();
   program.name('eval').description('Baseline vs. corrective RAG evaluation harness');
 
-  // Two resumable phases per CLAUDE.md: `run` answers questions and saves traces,
-  // `judge` sends saved answers to Gemini. Re-judging never re-runs the pipeline.
+  // run and judge are separate resumable phases — judging never re-runs the pipeline.
   program
     .command('run')
     .requiredOption('--config <name>', 'baseline, corrective, or corrective+cache')
     .requiredOption('--split <name>', 'dev or test')
     .action((options: { config: string; split: string }) => {
-      // Real pipeline runner (packages/core's createPipeline, checkpointed per question)
-      // lands here — this is Dhananjay's ownership per docs/workflow.md.
+      // Real pipeline runner lands here — Dhananjay's ownership per docs/workflow.md.
       console.log(
         `eval run --config ${options.config} --split ${options.split}: not yet implemented`,
       );

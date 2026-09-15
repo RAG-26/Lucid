@@ -1,7 +1,6 @@
 services:
   postgres:
-    # Pin the exact pgvector release: the bare pg18 tag floats to each new release, so our
-    # machines could silently diverge.
+    # Pin the exact pgvector version — the floating pg18 tag could diverge between machines.
     image: pgvector/pgvector:0.8.6-pg18
     restart: unless-stopped
     environment:
@@ -11,8 +10,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      # Postgres 18+ images require a single mount at /var/lib/postgresql (not .../data) —
-      # they now store data in a version-specific subdirectory underneath it.
+      # Postgres 18+ requires a single mount at /var/lib/postgresql, not .../data.
       - postgres_data:/var/lib/postgresql
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U lucid -d lucid']

@@ -7,8 +7,7 @@ export interface HealthResponse {
   timestamp: string;
 }
 
-// Real chat pipeline wiring (validate → createPipeline → respond) lands here once
-// packages/core/src/pipeline exists — see CLAUDE.md's request-lifecycle section.
+// Chat pipeline wiring lands here once packages/core/src/pipeline exists.
 export function buildHealthResponse(): HealthResponse {
   return { status: 'ok', timestamp: new Date().toISOString() };
 }
