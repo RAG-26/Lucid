@@ -1,0 +1,20 @@
+# Placeholder GitHub usernames — replace with real handles before this file has any effect.
+# Ownership mirrors the table in docs/workflow.md §1.
+
+apps/api/                      @navnita-handle
+apps/web/                      @navnita-handle
+packages/ingestion/            @navnita-handle
+packages/core/src/embeddings/  @navnita-handle
+packages/core/src/db/          @navnita-handle
+packages/core/src/retrieval/   @navnita-handle
+packages/core/src/generation/  @navnita-handle
+
+packages/core/src/llm/         @dhananjay-handle
+packages/core/src/correction/  @dhananjay-handle
+packages/core/src/cache/       @dhananjay-handle
+packages/core/src/pipeline/    @dhananjay-handle
+packages/eval/                 @dhananjay-handle
+docs/eval-report.md            @dhananjay-handle
+
+packages/core/src/types.ts     @dhananjay-handle @navnita-handle
+packages/core/src/prompts/     @dhananjay-handle @navnita-handle

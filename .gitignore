@@ -1,0 +1,28 @@
+/CLAUDE.md
+/docs/workflow.md
+/docs/navnita-brief.md
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Data & local model cache
+data/
+
+# Test output
+coverage/
+
+# OS
+.DS_Store
+
+# Claude Code local settings (per-machine overrides — .claude/settings.json is a separate,
+# possibly-team-shared file and is intentionally not ignored here)
+.claude/settings.local.json
