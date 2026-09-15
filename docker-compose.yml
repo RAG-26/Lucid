@@ -1,0 +1,38 @@
+services:
+  postgres:
+    # Pin the exact pgvector release: the bare pg18 tag floats to each new release, so our
+    # machines could silently diverge.
+    image: pgvector/pgvector:0.8.6-pg18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lucid
+      POSTGRES_PASSWORD: lucid
+      POSTGRES_DB: lucid
+    ports:
+      - '5432:5432'
+    volumes:
+      # Postgres 18+ images require a single mount at /var/lib/postgresql (not .../data) —
+      # they now store data in a version-specific subdirectory underneath it.
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U lucid -d lucid']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:8
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
+  redis_data:
