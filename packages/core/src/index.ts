@@ -4,3 +4,5 @@ export function assertNever(value: never): never {
 }
 
 export * from './types.js';
+export * from './llm/index.js';
+export * from './trace/index.js';
