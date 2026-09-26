@@ -10,6 +10,8 @@ packages/core/src/retrieval/   @navnita-handle
 packages/core/src/generation/  @navnita-handle
 
 packages/core/src/llm/         @dhananjay-handle
+packages/core/src/trace/       @dhananjay-handle
+packages/core/src/test/        @dhananjay-handle
 packages/core/src/correction/  @dhananjay-handle
 packages/core/src/cache/       @dhananjay-handle
 packages/core/src/pipeline/    @dhananjay-handle

@@ -9,5 +9,9 @@
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
+  },
+  "dependencies": {
+    "openai": "7.23.0",
+    "zod": "4.6.5"
   }
 }
